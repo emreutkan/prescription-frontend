@@ -18,7 +18,7 @@ const LoginForm = ({ setView, setToken }) => {
             const response = await apiFetch(
                 `/doctor/auth/login`,
                 'POST',
-                { username: loginUsername, password: loginPassword }
+                { username: loginUsername, password: loginPassword, role: 'doctor' }
             );
             setToken(response.token);
             setView('createPrescription');

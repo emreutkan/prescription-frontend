@@ -1,6 +1,6 @@
 // src/api/apiFetch.js
 
-const API_BASE_URL = 'http://localhost:4000'; // Update this if your API base URL changes
+const API_BASE_URL = 'https://prescription-gateway-aqgcewarhgbshfev.canadacentral-01.azurewebsites.net'; // Update this if your API base URL changes
 
 /**
  * Custom fetch wrapper to handle API calls with logging and error handling.

@@ -1,11 +1,9 @@
-// src/components/PharmacyPortal/LoginForm.js
-
 import React, { useState } from 'react';
 import { LogIn } from 'lucide-react';
 import apiFetch from '../../api/apiFetch';
 
 const LoginForm = ({ setView, setToken }) => {
-    const [loginUsername, setLoginUsername] = useState('');
+    const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
@@ -18,7 +16,10 @@ const LoginForm = ({ setView, setToken }) => {
             const response = await apiFetch(
                 `/pharmacy/auth/login`,
                 'POST',
-                { username: loginUsername, password: loginPassword }
+                {
+                    email: loginEmail,
+                    password: loginPassword
+                }
             );
             setToken(response.token);
             setView('manage');
@@ -35,10 +36,10 @@ const LoginForm = ({ setView, setToken }) => {
             <div className="form-group">
                 <input
                     className="form-input"
-                    type="text"
-                    placeholder="Username"
-                    value={loginUsername}
-                    onChange={(e) => setLoginUsername(e.target.value)}
+                    type="email"
+                    placeholder="Email"
+                    value={loginEmail}
+                    onChange={(e) => setLoginEmail(e.target.value)}
                     required
                 />
             </div>

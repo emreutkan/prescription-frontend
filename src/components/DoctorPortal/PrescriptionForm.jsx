@@ -93,7 +93,7 @@ const PrescriptionForm = ({ token }) => {
 
         try {
             const response = await apiFetch(
-                `/doctor/doctors/prescriptions`,
+                `/doctor/prescriptions`,
                 'POST',
                 { tcId, medicines },
                 token

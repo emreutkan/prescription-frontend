@@ -1,11 +1,9 @@
-// src/components/PharmacyPortal/RegisterForm.js
-
 import React, { useState } from 'react';
 import { UserPlus } from 'lucide-react';
 import apiFetch from '../../api/apiFetch';
 
 const RegisterForm = ({ setView }) => {
-    const [regUsername, setRegUsername] = useState('');
+    const [regEmail, setRegEmail] = useState('');
     const [regPassword, setRegPassword] = useState('');
     const [regName, setRegName] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -20,7 +18,7 @@ const RegisterForm = ({ setView }) => {
                 `/pharmacy/auth/register`,
                 'POST',
                 {
-                    username: regUsername,
+                    email: regEmail,
                     password: regPassword,
                     name: regName
                 }
@@ -40,10 +38,10 @@ const RegisterForm = ({ setView }) => {
             <div className="form-group">
                 <input
                     className="form-input"
-                    type="text"
-                    placeholder="Username"
-                    value={regUsername}
-                    onChange={(e) => setRegUsername(e.target.value)}
+                    type="email"
+                    placeholder="Email"
+                    value={regEmail}
+                    onChange={(e) => setRegEmail(e.target.value)}
                     required
                 />
             </div>
